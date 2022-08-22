@@ -1,0 +1,8 @@
+1) fare le modifiche al codice e buildare la nuova versione di jnj-client-manager
+2) in jnj-client-manager aprire il file client-info.json e aumentare la versione
+3) andare nella cartella executable, lanciare Launch4J, aprire il file config_launch4j.xml e generare l'eseguibile premendo il tasto con l'ingranaggio (viene messo nella cartella executable con il cone eseguibile.exe)
+4) installare, se non lo si ha già, Advance Installer (attualmente in versione 19.6)
+5) aprire con Advance Installer il file executable\setup\SetupFirmaJNJ\setUpFirmaJNJ.aip
+6) in product detail aumentare la versione e premere Build per buildare il setup. Quando chiede se generare una nuova versione dire di generarla. Il setup creato verrà messo in executable\setup\SetupFirmaJNJ\setUpFirmaJNJ-SetupFiles
+7) inserire il nuovo setup nella cartella firma/jnj all'interno di internauta_service (in prod metterlo in tutti gli as)
+8) sempre all'interno di firma/jnj aprire il file client-info.json e aumentare la versione allo stesso valore di quella inserita nel punto 2

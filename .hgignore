@@ -1,0 +1,9 @@
+syntax: glob
+firma-jnj-lib/nb-configuration.xml
+firma-jnj-lib/target
+firma-jnj-command/target
+jnj-client-library/target
+jnj-client-manager/nbactions.xml
+jnj-client-manager/target
+nb-configuration.xml
+jnj-client-library/nbactions.xml

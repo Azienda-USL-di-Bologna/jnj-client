@@ -1,0 +1,49 @@
+{
+	"serverUrl": "https://gdml.internal.ausl.bologna.it/cert_revocation_checker",
+	"signSessionId": "EF89FDF8-0867-8388-3F91-CDA78F68A4C2",
+	//"update_checker_url": "https://gdml.internal.ausl.bologna.it/cert_revocation_checker",
+	"userId": "DMRGPP83E29D851C",
+	"testMode": true/false,
+	"signedFileUploaderUrl": "https://gdml.internal.ausl.bologna.it/bds_tools/ReceiveFile?id=[fileId]", // al posto di fileId verrà sostituio la proprietà id passata nel file (siccome è una multipart aggiungiamo una parte json con tutto il json del file)
+	
+	"endSign": { // alla fine della firma sarà chiamato l'url passato in post e come body verrà aggiunto il json dentro params
+		"callBackUrl": "https://gdml.internal.ausl.bologna.it/bds_tools/EndSignManager",
+		"params": {
+                        //---------- qui gli si passa quello che si vuole, questi parametri saranno passati come body nella chiamata alla callBackUrl.
+			"resultChannel": "sign_response_97F01F27-8DF2-1BD0-B09A-219A26C4F323",
+			"environment": "test",
+			"serverIdentifier": "gdml",
+			"azienda_code": "105"
+				//-----------
+		}
+                signResult: "ALL_SIGNED/PARTIALLY_SIGNED/ERROR/ABORT", //verrà passato anche result con il risultato della firma: ALL_SIGNED/PARTIALLY_SIGNED/ERROR/ABORT
+		"fileList": [{...},...] // tutto il json di fileList sotto che avrà anche il campo uploaderResult compilato anche questo sarà passato alla servlet di endSign
+	}
+	"fileList": [{
+			"signAttributes": { //only for pades
+				"visible": true/false
+				"position": {
+					//"signatureName": "FirmaInvisibile",
+					"alignmentVertical": "TOP, BOTTOM, MIDDLE, NONE",
+					"alignmentHorizontal": "LEFT, RIGHT, CENTER, NONE",
+					"fieldOriginX": 0, 
+					"fieldOriginY": 0,
+					"fieldWidth": 0,
+					"fieldtHeight": 0,
+					"page": -1/1.. from 1 / 0 not allowed / -1 is the last
+				},
+				"textTemplate": "firmato da [COMMONNAME] per azienda  [ORGANIZATIONNAME]....[GIVENNAME]...[SURNAME]...[SERIALNUMBER]..[COUNTRYNAME]..[DNQUALIFIER]"
+				//"p7mSigType": "parallel"
+			},
+			"file": "https://gdml.internal.ausl.bologna.it/bds_tools/Downloader?token=B43F62D2-2BA3-FF6D-CD1C-8CAF081B3460&deletetoken=false",
+			"source": "URL/BASE64",
+			"name": "2021-1988_Allegato1",
+			"type": "AllegatoPicoNuovoPU",
+			"id": "17911199-A631-4819-4AE0-5047E7797CD0",
+			"uploaderResult": "", // risultato tornato dalla chiamata a signedFileUploaderUrl+
+			"mimeType": "application/pdf",
+			"signType": "pades/cades"
+		}
+	]
+}
+}

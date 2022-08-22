@@ -1,0 +1,9 @@
+/jnj-client-library/target/
+/firma-jnj-command/target/
+/jnj-client-manager/target/
+/firma-jnj-command/nb-configuration.xml
+/jnj-client-manager/nb-configuration.xml
+/jnj-client-library/nb-configuration.xml
+/executable/setup/SetupFirmaJNJ/.vs/
+/executable/setup/SetupFirmaJNJ/setUpFirmaJNJ-cache/
+/executable/setup/SetupFirmaJNJ/setUpFirmaJNJ-SetupFiles/

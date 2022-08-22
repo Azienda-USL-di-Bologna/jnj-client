@@ -1,0 +1,106 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<actions>
+        <action>
+            <actionName>debug</actionName>
+            <packagings>
+                <packaging>jar</packaging>
+            </packagings>
+            <goals>
+                <goal>process-classes</goal>
+                <goal>org.codehaus.mojo:exec-maven-plugin:1.5.0:exec</goal>
+            </goals>
+            <properties>
+                <exec.args>${exec.vmArgs} -classpath %classpath ${exec.mainClass} ${exec.appArgs}</exec.args>
+                <exec.executable>java</exec.executable>
+                <jpda.listen>true</jpda.listen>
+                <exec.appArgs>-r</exec.appArgs>
+                <exec.vmArgs>-agentlib:jdwp=transport=dt_socket,server=n,address=${jpda.address}</exec.vmArgs>
+                <exec.mainClass>it.bologna.ausl.jnjclient.manager.Main</exec.mainClass>
+            </properties>
+        </action>
+        <action>
+            <actionName>profile</actionName>
+            <packagings>
+                <packaging>jar</packaging>
+            </packagings>
+            <goals>
+                <goal>process-classes</goal>
+                <goal>org.codehaus.mojo:exec-maven-plugin:1.5.0:exec</goal>
+            </goals>
+            <properties>
+                <exec.args>${exec.vmArgs} -classpath %classpath ${exec.mainClass} ${exec.appArgs}</exec.args>
+                <exec.executable>java</exec.executable>
+                
+                <exec.appArgs>-r</exec.appArgs>
+                <exec.vmArgs></exec.vmArgs>
+                <exec.mainClass>it.bologna.ausl.jnjclient.manager.Main</exec.mainClass>
+            </properties>
+        </action>
+        <action>
+            <actionName>CUSTOM-resume</actionName>
+            <displayName>resume</displayName>
+            <goals>
+                <goal>process-classes</goal>
+                <goal>org.codehaus.mojo:exec-maven-plugin:3.0.0:exec</goal>
+            </goals>
+            <properties>
+                <exec.args>${exec.vmArgs} -classpath %classpath ${exec.mainClass} ${exec.appArgs}</exec.args>
+                <exec.executable>java</exec.executable>
+                
+                <exec.vmArgs></exec.vmArgs>
+                <exec.appArgs>-r</exec.appArgs>
+                <exec.mainClass>it.bologna.ausl.jnjclient.manager.Main</exec.mainClass>
+            </properties>
+        </action>
+        <action>
+            <actionName>run</actionName>
+            <packagings>
+                <packaging>jar</packaging>
+            </packagings>
+            <goals>
+                <goal>process-classes</goal>
+                <goal>org.codehaus.mojo:exec-maven-plugin:3.0.0:exec</goal>
+            </goals>
+            <properties>
+                <exec.vmArgs></exec.vmArgs>
+                <exec.args>${exec.vmArgs} -classpath %classpath ${exec.mainClass} ${exec.appArgs}</exec.args>
+                <exec.executable>java</exec.executable>
+                <exec.mainClass>it.bologna.ausl.jnjclient.manager.Main</exec.mainClass>
+                <exec.appArgs>-r</exec.appArgs>
+            </properties>
+        </action>
+        <action>
+            <actionName>CUSTOM-browser</actionName>
+            <displayName>browser</displayName>
+            <goals>
+                <goal>process-classes</goal>
+                <goal>org.codehaus.mojo:exec-maven-plugin:3.0.0:exec</goal>
+            </goals>
+            <properties>
+                <exec.vmArgs>-agentlib:jdwp=transport=dt_socket,server=n,address=${jpda.address}</exec.vmArgs>
+                <exec.args>${exec.vmArgs} -classpath %classpath ${exec.mainClass} ${exec.appArgs}</exec.args>
+                <exec.executable>java</exec.executable>
+				<jpda.listen>true</jpda.listen>
+                <exec.mainClass>it.bologna.ausl.jnjclient.manager.Main</exec.mainClass>
+               <exec.appArgs>firmajnj:-c%20FIRMA_JNJ%20-s%20https://gdml.internal.ausl.bologna.it/firma-api/jnj%20-p%20%22https%3A%2F%2Fgdml.internal.ausl.bologna.it%2Ffirma-api%2Fjnj%2FgetParameters%3Ftoken%3D9a901d3b-d0fc-402d-8278-914cb8e77298%22</exec.appArgs>
+            </properties>
+        </action>
+        <action>
+            <actionName>CUSTOM-resume2</actionName>
+            <displayName>resume2</displayName>
+            <goals>
+                <goal>process-classes</goal>
+                <goal>org.codehaus.mojo:exec-maven-plugin:3.0.0:exec</goal>
+            </goals>
+            <properties>
+			
+                <exec.args>${exec.vmArgs} -classpath %classpath ${exec.mainClass} ${exec.appArgs}</exec.args>
+                <exec.executable>java</exec.executable>
+                
+                <exec.vmArgs></exec.vmArgs>
+                <exec.appArgs>-classpath %classpath ${packageClassName} firmajnj:-p%20http%3A%2F%2Flocalhost%3A10005%2Ffirma-api%2Fjnj%2FgetParameters%3Ftoken%3Dcef78822-0c9c-4891-b66d-a1e494cceca9%20-e%20URL/</exec.appArgs>
+                <exec.mainClass>it.bologna.ausl.jnjclient.manager.Main</exec.mainClass>
+            </properties>
+        </action>
+        
+    </actions>

@@ -1,0 +1,1 @@
+-c,FIRMA_JNJ,-s,https://gdml.internal.ausl.bologna.it/firma-api/jnj/checkUpdate,-p,https://gdml.internal.ausl.bologna.it/firma-api/jnj/getParameters?token=4a20c2c8-5c3d-47a6-9d1e-a63a2c80bad5,-e,URL
